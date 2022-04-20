@@ -22,7 +22,8 @@ fetch('https://reqres.in/api/users/2')
 .then(
     function(data){
         console.log(data);
-        showInfo(data)
+        showInfo(data);
+        showAvtr(data);
     })
 
 function showInfo(data){
@@ -31,4 +32,13 @@ function showInfo(data){
         mainInfo.innerText =" " + data.data.first_name;
     
     info.append(mainInfo);
+}
+
+function showAvtr(data){
+    const info = document.querySelector('#info');
+    var imageURL = data.data.avatar;
+    var avtr = document.createElement('img');
+    avtr.setAttribute('src', imageURL);
+    info.append(avtr);
+
 }
